@@ -1,0 +1,55 @@
+{
+	"name": "vscode-purty",
+	"displayName": "vscode-purty",
+	"publisher": "mvakula",
+	"author": {
+		"name": "Mika Vakula"
+	},
+	"description": "PureScript formatter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvakula/vscode-purty"
+  },
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [
+		"onLanguage:purescript"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "purescript",
+				"aliases": [
+					"PureScript",
+					"purs"
+				],
+				"extensions": [
+					".purs"
+				]
+			}
+		],
+		"commands": [
+			{
+				"command": "extension.format-ps",
+				"title": "Format PureScript"
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25",
+		"eslint": "^4.11.0",
+		"@types/node": "^8.10.25",
+		"@types/mocha": "^2.2.42"
+	}
+}
