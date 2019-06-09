@@ -30,7 +30,7 @@ function format (document) {
 }
 
 function purty (document) {
-  const cmd = `purty ${document.fileName} --dynamic`
+  const cmd = `purty ${document.fileName}`
   const cwdCurrent = vscode.workspace.rootPath
   return new Promise((resolve, reject) => {
     exec(cmd, { cwd: cwdCurrent }, (err, stdout, stderr) => {
