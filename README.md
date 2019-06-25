@@ -7,9 +7,3 @@ Code formatting with [purty](https://gitlab.com/joneshf/purty).
 ## Requirements
 
 `npm install purty`
-
-## Release Notes
-
-### 0.0.1
-
-Initial release
