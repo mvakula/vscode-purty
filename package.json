@@ -21,6 +21,7 @@
 		"onLanguage:purescript"
 	],
 	"main": "./extension.js",
+	"icon": "images/icon.png",
 	"contributes": {
 		"languages": [
 			{
