@@ -6,11 +6,11 @@
 		"name": "Mika Vakula"
 	},
 	"description": "PureScript formatter",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mvakula/vscode-purty"
-  },
-	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mvakula/vscode-purty"
+	},
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.30.0"
 	},
