@@ -1,3 +1,6 @@
+## 0.2.0
+- Fix "Format on save" (Thanks to @hendrikniemann)
+
 ## 0.1.1
 - Add icon
 - Update npm deps
