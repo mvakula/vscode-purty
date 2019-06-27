@@ -28,18 +28,20 @@ function format (document) {
       console.log('err', err)
     })
 }
-
 function purty (document) {
-  const cmd = `purty ${document.fileName}`
+  const cmd = 'purty -'
+  const text = document.getText();
   const cwdCurrent = vscode.workspace.rootPath
   return new Promise((resolve, reject) => {
-    exec(cmd, { cwd: cwdCurrent }, (err, stdout, stderr) => {
+    const childProcess = exec(cmd, { cwd: cwdCurrent }, (err, stdout, stderr) => {
       if (err) {
         console.log('err', err)
         reject(err)
       }
       resolve({ stdout: stdout, stderr: stderr })
     })
+    childProcess.stdin.write(text)
+    childProcess.stdin.end()
   })
 }
 
