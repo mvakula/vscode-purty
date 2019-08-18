@@ -1,3 +1,10 @@
+## 0.3.0
+- Add support for local purty (Thanks to @jukkhop)
+- Remove unused command (Thanks to @jukkhop)
+- Show message on error and advice installing purty
+- Clean unused code and deps
+- Update npm deps
+
 ## 0.2.0
 - Fix "Format on save" (Thanks to @hendrikniemann)
 
