@@ -34,12 +34,6 @@
 					".purs"
 				]
 			}
-		],
-		"commands": [
-			{
-				"command": "extension.format-ps",
-				"title": "Format PureScript"
-			}
 		]
 	},
 	"scripts": {
