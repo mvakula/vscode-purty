@@ -10,7 +10,7 @@
 		"type": "git",
 		"url": "https://github.com/mvakula/vscode-purty"
 	},
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"engines": {
 		"vscode": "^1.30.0"
 	},
