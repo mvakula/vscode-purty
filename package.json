@@ -41,9 +41,7 @@
 		"test": "node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"@types/node": "^12.0.10",
 		"eslint": "^6.0.1",
-		"typescript": "^3.5.2",
 		"vscode": "^1.1.34"
 	},
 	"dependencies": {
