@@ -29,6 +29,8 @@ function format (document) {
     })
     .catch(err => {
       console.log('err', err)
+      vscode.window.showErrorMessage(`Error: ${err}`);
+      vscode.window.showInformationMessage('Do you have Purty installed? "npm install purty"');
     })
 }
 function purty (document) {
