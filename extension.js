@@ -1,5 +1,8 @@
 const vscode = require('vscode')
 const { exec } = require('child_process')
+const path = require('path')
+const fs = require('fs')
+const pkgUp = require('pkg-up')
 
 function activate (context) {
   console.log('Congratulations, your extension "vscode-purty" is now active!')
@@ -29,7 +32,8 @@ function format (document) {
     })
 }
 function purty (document) {
-  const cmd = 'purty -'
+  const localPurty = findLocalPurty(document.fileName);
+  const cmd = `${localPurty || 'purty'} -`;
   const text = document.getText();
   const cwdCurrent = vscode.workspace.rootPath
   return new Promise((resolve, reject) => {
@@ -43,6 +47,25 @@ function purty (document) {
     childProcess.stdin.write(text)
     childProcess.stdin.end()
   })
+}
+
+function findLocalPurty (fspath) {
+  try {
+    const pkgPath = pkgUp.sync({ cwd: fspath });
+    if (pkgPath) {
+      const purtyPath = path.resolve(
+        path.dirname(pkgPath),
+        'node_modules',
+        '.bin',
+        'purty'
+      );
+      if (fs.existsSync(purtyPath)) {
+        return purtyPath;
+      }
+    }
+  } catch (e) {
+  }
+  return null;
 }
 
 exports.activate = activate
