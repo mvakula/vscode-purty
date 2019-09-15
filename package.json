@@ -42,7 +42,7 @@
 	},
 	"devDependencies": {
 		"diff": ">=3.5.0",
-		"eslint": "^6.1.0",
+		"eslint": "^6.4.0",
 		"vscode": "^1.1.36"
 	},
 	"dependencies": {
