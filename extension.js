@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const pkgUp = require('pkg-up')
 
-function activate (context) {
+function activate(context) {
   console.log('Congratulations, your extension "vscode-purty" is now active!')
   context.subscriptions.push(
     vscode.languages.registerDocumentFormattingEditProvider(
@@ -14,8 +14,8 @@ function activate (context) {
   )
 }
 
-function format (document) {
-  console.log('formatting purescript')
+function format(document) {
+  console.debug('formatting purescript')
   return purty(document)
     .then(({ stdout }) => {
       const lastLineId = document.lineCount - 1
@@ -33,11 +33,26 @@ function format (document) {
       vscode.window.showInformationMessage('Do you have Purty installed? "npm install purty"');
     })
 }
-function purty (document) {
-  const localPurty = findLocalPurty(document.fileName);
-  const cmd = `${localPurty || 'purty'} -`;
+
+function purty(document) {
+  const configs = vscode.workspace.getConfiguration('purty');
+  let purtyCmd;
+  // We use empty string to mean unspecified because it means that the setting
+  // can be edited without having to write json (`["string", "null"]` does not
+  // have this property).
+  if (configs.pathToPurty !== "") {
+    purtyCmd = configs.pathToPurty;
+  } else {
+    const localPurty = findLocalPurty(document.fileName);
+    if (localPurty != null) {
+      purtyCmd = localPurty;
+    } else {
+      purtyCmd = 'purty';
+    }
+  }
+  const cmd = `${purtyCmd} -`;
   const text = document.getText();
-  const cwdCurrent = vscode.workspace.rootPath
+  const cwdCurrent = vscode.workspace.rootPath;
   return new Promise((resolve, reject) => {
     const childProcess = exec(cmd, { cwd: cwdCurrent }, (err, stdout, stderr) => {
       if (err) {
@@ -51,7 +66,7 @@ function purty (document) {
   })
 }
 
-function findLocalPurty (fspath) {
+function findLocalPurty(fspath) {
   try {
     const pkgPath = pkgUp.sync({ cwd: fspath });
     if (pkgPath) {
@@ -70,9 +85,7 @@ function findLocalPurty (fspath) {
   return null;
 }
 
-exports.activate = activate
-
-function deactivate () {}
+function deactivate() { }
 
 module.exports = {
   activate,

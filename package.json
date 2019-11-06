@@ -34,7 +34,17 @@
 					".purs"
 				]
 			}
-		]
+		],
+		"configuration": {
+			"title": "Purty",
+			"properties": {
+				"purty.pathToPurty": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "Specifies the location of the purty executable (if unspecified I will try \"cwd/node_modules/.bin/purty\" and then look in the `PATH` environment variable)."
+				}
+			}
+		}
 	},
 	"scripts": {
 		"postinstall": "node ./node_modules/vscode/bin/install",
