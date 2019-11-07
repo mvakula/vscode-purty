@@ -36,20 +36,7 @@ function format(document) {
 
 function purty(document) {
   const configs = vscode.workspace.getConfiguration('purty');
-  let purtyCmd;
-  // We use empty string to mean unspecified because it means that the setting
-  // can be edited without having to write json (`["string", "null"]` does not
-  // have this property).
-  if (configs.pathToPurty !== "") {
-    purtyCmd = configs.pathToPurty;
-  } else {
-    const localPurty = findLocalPurty(document.fileName);
-    if (localPurty != null) {
-      purtyCmd = localPurty;
-    } else {
-      purtyCmd = 'purty';
-    }
-  }
+  const purtyCmd = getPurtyCmd(configs.pathToPurty, document.fileName)
   const cmd = `${purtyCmd} -`;
   const text = document.getText();
   const cwdCurrent = vscode.workspace.rootPath;
@@ -83,6 +70,22 @@ function findLocalPurty(fspath) {
   } catch (e) {
   }
   return null;
+}
+
+function getPurtyCmd(pathToPurty, fileName) {
+  // We use empty string to mean unspecified because it means that the setting
+  // can be edited without having to write json (`["string", "null"]` does not
+  // have this property).
+  if (pathToPurty !== "") {
+    return pathToPurty;
+  } else {
+    const localPurty = findLocalPurty(fileName);
+    if (localPurty != null) {
+      return localPurty;
+    } else {
+      return 'purty';
+    }
+  }
 }
 
 function deactivate() { }
