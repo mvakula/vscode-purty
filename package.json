@@ -56,6 +56,12 @@
 		"vscode": "^1.1.37"
 	},
 	"dependencies": {
-		"pkg-up": "^3.1.0"
+		"pkg-up": "^3.1.0",
+		"which": "^2.0.1"
+	},
+	"__metadata": {
+		"id": "d39a6373-b60a-4384-b464-90140c2683bd",
+		"publisherDisplayName": "Mika Vakula",
+		"publisherId": "f5558152-3a37-46c1-b65e-b76e63d275c5"
 	}
 }
