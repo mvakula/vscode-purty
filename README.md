@@ -6,4 +6,4 @@ Code formatting with [purty](https://gitlab.com/joneshf/purty).
 
 ## Requirements
 
-`npm install purty`
+`npm install purty` or specify the location of the purty executable in the extension settings (vscode settings)
