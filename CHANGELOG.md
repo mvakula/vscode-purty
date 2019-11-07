@@ -1,3 +1,6 @@
+## Unreleased
+- Add support for custom purty binary location
+
 ## 0.3.0
 - Add support for local purty (Thanks to @jukkhop)
 - Remove unused command (Thanks to @jukkhop)
