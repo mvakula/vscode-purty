@@ -1,5 +1,5 @@
-## Unreleased
-- Add support for custom purty binary location
+## 0.4.0
+- Add support for custom purty binary location (Thanks to @derekdreery)
 
 ## 0.3.0
 - Add support for local purty (Thanks to @jukkhop)
