@@ -1,3 +1,7 @@
+## 0.5.0
+- Show only relevant errors (Thanks to @derekdreery)
+Report errors only when vscode can't find it, so now shouldn't show syntax error that purty can't cope with.
+
 ## 0.4.0
 - Add support for custom purty binary location (Thanks to @derekdreery)
 
