@@ -1,4 +1,4 @@
-## 0.5.0
+## 0.6.0
 - Show only relevant errors (Thanks to @derekdreery)
 Report errors only when vscode can't find it, so now shouldn't show syntax error that purty can't cope with.
 
