@@ -121,22 +121,6 @@ const localPurtyPath = async (cwd) => {
   return null;
 }
 
-function getPurtyCmd(pathToPurty, fileName) {
-  // We use empty string to mean unspecified because it means that the setting
-  // can be edited without having to write json (`["string", "null"]` does not
-  // have this property).
-  if (pathToPurty !== "") {
-    return pathToPurty;
-  } else {
-    const localPurty = findLocalPurty(fileName);
-    if (localPurty != null) {
-      return localPurty;
-    } else {
-      return 'purty';
-    }
-  }
-}
-
 function deactivate() { }
 
 module.exports = {
